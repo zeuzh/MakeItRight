@@ -1,12 +1,66 @@
-html, body {
-    margin: 0;
-    padding: 0;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 /* ********** index.html ********** */
+.selector {
+  margin-top: 4%;
+}
 
+.selector h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cardOne,
+.cardTwo {
+  border: 2px solid black;
+  border-radius: 8px;
+  width: 25vw;
+  height: 40vh;
+  margin: 0 10px;
+  background: white;
+}
+
+.cardOne:hover,
+.cardTwo:hover {
+  transform: scale(1.025);
+  transition: 0.3s;
+}
+
+.cardOne:not(:hover),
+.cardTwo:not(:hover) {
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.cardOne h1,
+.cardTwo h1 {
+  padding-top: 5%;
+  color: black;
+}
+
+.emoji {
+  font-size: 1000% !important;
+  text-align: center;
+}
+
+.indexFooter {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
 
 /* ********** food.html ********** */
-
 
 /* ********** drink.html ********** */

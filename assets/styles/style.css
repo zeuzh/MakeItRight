@@ -20,6 +20,23 @@ main h1 {
   font-weight: bold;
 }
 
+.card {
+  position: relative;
+}
+
+.card .heading {
+  margin: 0 0 15% 0;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
 /* ********** index.html ********** */
 .selector {
   margin-top: 4%;
@@ -78,5 +95,12 @@ main h1 {
 }
 
 /* ********** food.html ********** */
+.foodResults {
+  width: 75vw;
+  margin: 25px auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 50px;
+}
 
 /* ********** drink.html ********** */

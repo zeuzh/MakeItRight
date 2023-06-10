@@ -4,6 +4,10 @@ const foodKey = "bd1d41381c9b73f213e16535f88be93a";
 const foodId = "faba4411";
 const foodInput = document.querySelector(".foodInput");
 
+window.onload = function () {
+  fetchFood("popular");
+};
+
 function fetchFood(food) {
   fetch(
     `https://api.edamam.com/search?q=${food}&app_id=${foodId}&app_key=${foodKey}&from=0&to=20`

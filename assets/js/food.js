@@ -4,6 +4,8 @@ const foodKey = "bd1d41381c9b73f213e16535f88be93a";
 const foodId = "faba4411";
 const foodInput = document.querySelector(".foodInput");
 const foodResults = document.querySelector(".foodResults");
+const prevSearch = document.querySelector(".prevSearch");
+let foodHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 window.onload = function () {
   fetchFood("popular");
@@ -45,5 +47,22 @@ function renderResults(data) {
 foodForm.addEventListener("submit", function (event) {
   event.preventDefault();
   var foodSearch = foodInput.value;
+  foodHistory.push(foodSearch);
+  localStorage.setItem("food", JSON.stringify(foodHistory));
   fetchFood(foodSearch);
+  renderFoodHistory();
 });
+
+function renderFoodHistory() {
+  prevSearch.innerHTML = "";
+  for (let i = 0; i < foodHistory.length; i++) {
+    const searchItem = document.createElement("input");
+    searchItem.setAttribute("type", "button");
+    searchItem.setAttribute("onclick", "fetchFood(this)");
+    searchItem.setAttribute("style", "margin-bottom: 10px;");
+    searchItem.setAttribute("class", "form-control d-block bg-grey");
+    searchItem.setAttribute("id", "historyItem");
+    searchItem.setAttribute("value", foodHistory[i]);
+    prevSearch.append(searchItem);
+  }
+}

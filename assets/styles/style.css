@@ -24,19 +24,17 @@ main h1 {
   position: relative;
 }
 
-.card .heading {
+.card .foodHeading {
   margin: 0 0 15% 0;
 }
 
-.bottom {
+.foodBottom {
   position: absolute;
   bottom: 0;
-}
-
-.bottom {
   display: flex;
   justify-content: space-between;
 }
+
 /* ********** index.html ********** */
 .selector {
   margin-top: 4%;
@@ -94,13 +92,12 @@ main h1 {
   left: 0;
 }
 
-/* ********** food.html ********** */
-.foodResults {
+/* ******************** */
+.foodResults,
+.drinkResults {
   width: 75vw;
   margin: 25px auto;
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 50px;
 }
-
-/* ********** drink.html ********** */

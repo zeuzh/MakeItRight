@@ -4,6 +4,20 @@ body {
   padding: 0;
 }
 
+body {
+  background: rgb(241, 241, 241);
+}
+
+header,
+footer {
+  background: rgb(147, 179, 212);
+  color: white;
+}
+
+#navbar-default ul {
+  background: rgb(147, 179, 212);
+}
+
 form {
   width: 40%;
   margin: 0 auto;
@@ -22,6 +36,7 @@ main h1 {
 
 .card {
   position: relative;
+  background: white;
 }
 
 .card .foodHeading {
@@ -176,5 +191,14 @@ main h1 {
   }
   .choices {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  footer {
+    text-align: center;
+  }
+  .footerNav {
+    display: none;
   }
 }

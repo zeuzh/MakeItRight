@@ -9,10 +9,7 @@ let foodHistory = JSON.parse(localStorage.getItem("food")) || [];
 
 window.onload = function () {
   fetchFood("popular");
-  // var previouslySearchedValues = local
-  // if (foodHistory.length) {
   renderFoodHistory();
-  // }
 };
 
 foodForm.addEventListener("submit", function (event) {
@@ -59,10 +56,17 @@ function renderResults(data) {
 
 function renderFoodHistory() {
   prevSearch.innerHTML = "";
+
+  if (foodHistory.length) {
+    const prevHeader = document.createElement("h2");
+    prevHeader.setAttribute("class", "previousHeader");
+    prevHeader.innerHTML = "Previous Searches: ";
+    prevSearch.append(prevHeader);
+  }
   for (let i = 0; i < foodHistory.length; i++) {
     const searchItem = document.createElement("input");
     searchItem.setAttribute("type", "button");
-    // searchItem.setAttribute("onclick", "fetchFood(this)");
+    searchItem.setAttribute("onclick", `fetchFood("${foodHistory[i]}")`);
     searchItem.setAttribute("class", "prevSearchBtn");
     searchItem.setAttribute("value", foodHistory[i]);
     prevSearch.append(searchItem);

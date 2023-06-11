@@ -102,6 +102,10 @@ main h1 {
   grid-gap: 50px;
 }
 
+.previousHeader {
+  margin: 0 auto;
+}
+
 .prevSearch {
   margin: 10px auto 0 auto;
   text-align: center;
@@ -130,6 +134,9 @@ main h1 {
   .drinkResults {
     grid-template-columns: auto auto auto;
   }
+  form {
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 1119px) {
@@ -144,9 +151,11 @@ main h1 {
   .drinkResults {
     grid-template-columns: auto;
   }
-
   .card {
     margin: 0 auto;
     width: 75vw;
+  }
+  form {
+    width: 90%;
   }
 }

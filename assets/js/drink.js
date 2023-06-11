@@ -35,16 +35,6 @@ function renderResults(data) {
   let drinks = data.drinks;
   let html = drinks
     .map((data) => {
-      let ingredients = "";
-      let ingredientNum = 1;
-
-      while (data[`strIngredient${ingredientNum}`]) {
-        const ingredient = data[`strIngredient${ingredientNum}`];
-        const measure = data[`strMeasure${ingredientNum}`];
-        ingredients += `<p class="data">Ingredient ${ingredientNum}: ${measure}: ${ingredient}</p>`;
-        ingredientNum++;
-      }
-
       return `<div class="card max-w-sm rounded overflow-hidden shadow-lg">
       <img class="w-full" src=${data.strDrinkThumb} alt=${data.strDrink}>
       <div class="px-6 py-4">

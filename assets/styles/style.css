@@ -101,3 +101,29 @@ main h1 {
   grid-template-columns: auto auto auto auto;
   grid-gap: 50px;
 }
+
+@media screen and (max-width: 1515px) {
+  .foodResults,
+  .drinkResults {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 1119px) {
+  .foodResults,
+  .drinkResults {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media screen and (max-width: 724px) {
+  .foodResults,
+  .drinkResults {
+    grid-template-columns: auto;
+  }
+
+  .card {
+    margin: 0 auto;
+    width: 75vw;
+  }
+}

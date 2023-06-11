@@ -11,6 +11,15 @@ window.onload = function () {
   fetchFood("popular");
 };
 
+foodForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  var foodSearch = foodInput.value;
+  foodHistory.push(foodSearch);
+  localStorage.setItem("food", JSON.stringify(foodHistory));
+  fetchFood(foodSearch);
+  renderFoodHistory();
+});
+
 function fetchFood(food) {
   fetch(
     `https://api.edamam.com/search?q=${food}&app_id=${foodId}&app_key=${foodKey}&from=0&to=20`
@@ -43,15 +52,6 @@ function renderResults(data) {
     .join("");
   foodResults.insertAdjacentHTML("afterbegin", render);
 }
-
-foodForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  var foodSearch = foodInput.value;
-  foodHistory.push(foodSearch);
-  localStorage.setItem("food", JSON.stringify(foodHistory));
-  fetchFood(foodSearch);
-  renderFoodHistory();
-});
 
 function renderFoodHistory() {
   prevSearch.innerHTML = "";

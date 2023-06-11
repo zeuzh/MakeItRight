@@ -1,4 +1,3 @@
-// FOOD STUFF
 const foodForm = document.querySelector(".foodForm");
 const foodKey = "bd1d41381c9b73f213e16535f88be93a";
 const foodId = "faba4411";
@@ -7,11 +6,14 @@ const foodResults = document.querySelector(".foodResults");
 const prevSearch = document.querySelector(".prevSearch");
 let foodHistory = JSON.parse(localStorage.getItem("food")) || [];
 
+// on window load fetch food api with "popular" query so it gets popular food recipes
+// render recent food searches if there is any
 window.onload = function () {
   fetchFood("popular");
   renderFoodHistory();
 };
 
+// on search submit fetch data from food api and add search value to localStorage
 foodForm.addEventListener("submit", function (event) {
   event.preventDefault();
   var foodSearch = foodInput.value;
@@ -21,6 +23,7 @@ foodForm.addEventListener("submit", function (event) {
   renderFoodHistory();
 });
 
+// fetch food data based on search value
 function fetchFood(food) {
   fetch(
     `https://api.edamam.com/search?q=${food}&app_id=${foodId}&app_key=${foodKey}&from=0&to=20`
@@ -33,6 +36,7 @@ function fetchFood(food) {
     });
 }
 
+// map and render results from food api to cards on page
 function renderResults(data) {
   console.log(data);
   let render = data.hits
@@ -54,6 +58,7 @@ function renderResults(data) {
   foodResults.insertAdjacentHTML("afterbegin", render);
 }
 
+// render recent food searches that are saved in localStorage
 function renderFoodHistory() {
   prevSearch.innerHTML = "";
 

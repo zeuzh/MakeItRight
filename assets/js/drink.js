@@ -1,15 +1,17 @@
-// FOOD STUFF
 const drinkForm = document.querySelector(".drinkForm");
 const drinkInput = document.querySelector(".drinkInput");
 const drinkResults = document.querySelector(".drinkResults");
 const prevSearch = document.querySelector(".prevSearch");
 let drinkHistory = JSON.parse(localStorage.getItem("drink")) || [];
 
+// on window load fetch drink api with no query so it gets random response
+// render recent drink searches if there is any
 window.onload = function () {
   fetchDrink("");
   renderDrinkHistory();
 };
 
+// on search submit fetch data from drink api and add search value to localStorage
 drinkForm.addEventListener("submit", function (event) {
   event.preventDefault();
   var drinkSearch = drinkInput.value;
@@ -19,6 +21,7 @@ drinkForm.addEventListener("submit", function (event) {
   renderDrinkHistory();
 });
 
+// fetch drink data based on search value
 function fetchDrink(drink) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(function (response) {
@@ -30,6 +33,7 @@ function fetchDrink(drink) {
     });
 }
 
+// map and render results from drink api to cards on page
 function renderResults(data) {
   console.log(data);
   let drinks = data.drinks;
@@ -51,6 +55,7 @@ function renderResults(data) {
   drinkResults.insertAdjacentHTML("afterbegin", html);
 }
 
+// render recent drink searches that are saved in localStorage
 function renderDrinkHistory() {
   prevSearch.innerHTML = "";
 

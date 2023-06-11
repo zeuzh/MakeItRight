@@ -1,3 +1,4 @@
+/* base styles for all pages */
 html,
 body {
   margin: 0;
@@ -18,39 +19,7 @@ footer {
   background: rgb(147, 179, 212);
 }
 
-form {
-  width: 40%;
-  margin: 0 auto;
-}
-
-form input,
-form button {
-  height: 50px;
-}
-
-main h1 {
-  text-align: center;
-  font-size: 31px;
-  font-weight: bold;
-}
-
-.card {
-  position: relative;
-  background: white;
-}
-
-.card .foodHeading {
-  margin: 0 0 15% 0;
-}
-
-.foodBottom {
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* ********** index.html ********** */
+/* index.html */
 .selector {
   margin-top: 4%;
 }
@@ -107,7 +76,41 @@ main h1 {
   left: 0;
 }
 
-/* ******************** */
+/* food.html/drinks.html */
+
+form {
+  width: 40%;
+  margin: 0 auto;
+}
+
+form input,
+form button {
+  height: 50px;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 31px;
+  font-weight: bold;
+}
+
+.card {
+  position: relative;
+  background: white;
+}
+
+.card .foodHeading {
+  margin: 0 0 15% 0;
+}
+
+.foodBottom {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .foodResults,
 .drinkResults {
   width: 75vw;
@@ -143,6 +146,8 @@ main h1 {
 .prevSearchBtn:not(:hover) {
   transition: 0.4s;
 }
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 1515px) {
   .foodResults,

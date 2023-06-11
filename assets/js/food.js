@@ -5,10 +5,14 @@ const foodId = "faba4411";
 const foodInput = document.querySelector(".foodInput");
 const foodResults = document.querySelector(".foodResults");
 const prevSearch = document.querySelector(".prevSearch");
-let foodHistory = JSON.parse(localStorage.getItem("search")) || [];
+let foodHistory = JSON.parse(localStorage.getItem("food")) || [];
 
 window.onload = function () {
   fetchFood("popular");
+  // var previouslySearchedValues = local
+  // if (foodHistory.length) {
+  renderFoodHistory();
+  // }
 };
 
 foodForm.addEventListener("submit", function (event) {
@@ -58,10 +62,8 @@ function renderFoodHistory() {
   for (let i = 0; i < foodHistory.length; i++) {
     const searchItem = document.createElement("input");
     searchItem.setAttribute("type", "button");
-    searchItem.setAttribute("onclick", "fetchFood(this)");
-    searchItem.setAttribute("style", "margin-bottom: 10px;");
-    searchItem.setAttribute("class", "form-control d-block bg-grey");
-    searchItem.setAttribute("id", "historyItem");
+    // searchItem.setAttribute("onclick", "fetchFood(this)");
+    searchItem.setAttribute("class", "prevSearchBtn");
     searchItem.setAttribute("value", foodHistory[i]);
     prevSearch.append(searchItem);
   }

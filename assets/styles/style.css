@@ -102,6 +102,29 @@ main h1 {
   grid-gap: 50px;
 }
 
+.prevSearch {
+  margin: 10px auto 0 auto;
+  text-align: center;
+}
+
+.prevSearchBtn {
+  padding: 7px;
+  background-color: rgb(237, 237, 237);
+  border-radius: 8px;
+  margin: 10px 5px;
+  border: 1px solid black;
+}
+
+.prevSearchBtn:hover {
+  cursor: pointer;
+  background: rgb(195, 195, 195);
+  transition: 0.4s;
+}
+
+.prevSearchBtn:not(:hover) {
+  transition: 0.4s;
+}
+
 @media screen and (max-width: 1515px) {
   .foodResults,
   .drinkResults {

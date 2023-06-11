@@ -146,6 +146,16 @@ main h1 {
   }
 }
 
+@media screen and (max-width: 1050px) {
+  .cardOne,
+  .cardTwo {
+    width: 40vw;
+  }
+  .emoji {
+    font-size: 800% !important;
+  }
+}
+
 @media screen and (max-width: 724px) {
   .foodResults,
   .drinkResults {
@@ -157,5 +167,14 @@ main h1 {
   }
   form {
     width: 90%;
+  }
+  .cardOne,
+  .cardTwo {
+    width: 80vw;
+    height: 100%;
+    margin: 10px auto;
+  }
+  .choices {
+    flex-direction: column;
   }
 }

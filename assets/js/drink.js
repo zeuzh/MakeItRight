@@ -2,10 +2,22 @@
 const drinkForm = document.querySelector(".drinkForm");
 const drinkInput = document.querySelector(".drinkInput");
 const drinkResults = document.querySelector(".drinkResults");
+const prevSearch = document.querySelector(".prevSearch");
+let drinkHistory = JSON.parse(localStorage.getItem("drink")) || [];
 
 window.onload = function () {
   fetchDrink("");
+  renderDrinkHistory();
 };
+
+drinkForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  var drinkSearch = drinkInput.value;
+  drinkHistory.push(drinkSearch);
+  localStorage.setItem("drink", JSON.stringify(drinkHistory));
+  fetchDrink(drinkSearch);
+  renderDrinkHistory();
+});
 
 function fetchDrink(drink) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
@@ -14,6 +26,7 @@ function fetchDrink(drink) {
     })
     .then(function (data) {
       renderResults(data);
+      renderDrinkHistory();
     });
 }
 
@@ -48,8 +61,21 @@ function renderResults(data) {
   drinkResults.insertAdjacentHTML("afterbegin", html);
 }
 
-drinkForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  var drinkSearch = drinkInput.value;
-  fetchDrink(drinkSearch);
-});
+function renderDrinkHistory() {
+  prevSearch.innerHTML = "";
+
+  if (drinkHistory.length) {
+    const prevHeader = document.createElement("h2");
+    prevHeader.setAttribute("class", "previousHeader");
+    prevHeader.innerHTML = "Previous Searches: ";
+    prevSearch.append(prevHeader);
+  }
+  for (let i = 0; i < drinkHistory.length; i++) {
+    const searchItem = document.createElement("input");
+    searchItem.setAttribute("type", "button");
+    searchItem.setAttribute("onclick", `fetchDrink("${drinkHistory[i]}")`);
+    searchItem.setAttribute("class", "prevSearchBtn");
+    searchItem.setAttribute("value", drinkHistory[i]);
+    prevSearch.append(searchItem);
+  }
+}

@@ -8,7 +8,7 @@ Make it Right is a food and drink recipe search website that uses server side AP
 
 ## Links
 
-[Live Site](https://zeuzh.github.io/MakeItRight/index.html)\
+[Live Site](https://zeuzh.github.io/MakeItRight/)\
 [GitHub Repository](https://github.com/zeuzh/MakeItRight)
 
 ## Showcase
